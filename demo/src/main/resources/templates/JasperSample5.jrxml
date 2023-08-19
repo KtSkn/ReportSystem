@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JasperReportSample4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="85199cc3-1c06-49ec-9658-5aa436eb983c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Image1" class="java.awt.Image"/>
+	<field name="firstname" class="java.lang.String"/>
+	<field name="lastname" class="java.lang.String"/>
+	<field name="city" class="java.lang.String"/>
+	<field name="street" class="java.lang.String"/>
+	<field name="shopname" class="java.lang.String"/>
+	<field name="age" class="java.lang.Integer"/>
+	<variable name="aveAge" class="java.lang.Double" resetType="Group" resetGroup="gShopname" calculation="Average">
+		<variableExpression><![CDATA[$F{age}]]></variableExpression>
+	</variable>
+	<group name="gShopname">
+		<groupExpression><![CDATA[$F{shopname}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement uuid="399502bd-86ab-4bec-a6f7-2aba26437572" x="65" y="12" width="317" height="26"/>
+					<textElement>
+						<font size="18" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{shopname}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="51">
+				<frame>
+					<reportElement uuid="be13b916-d317-4015-87f0-fd13eb2226de" x="279" y="9" width="88" height="26"/>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement uuid="984bb99d-a050-4cc5-b16d-328131010fb6" mode="Transparent" x="0" y="1" width="88" height="25"/>
+						<textElement textAlignment="Center">
+							<font size="16" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+						</textElement>
+						<text><![CDATA[平均年令]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement uuid="db916f0f-e7dd-45b8-82f4-ced7939f8773" x="367" y="9" width="64" height="26"/>
+					<box>
+						<pen lineWidth="1.0"/>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textField pattern="###0.00;-###0.00">
+						<reportElement uuid="c32cc0a8-e676-4868-905b-9ea932b7be30" x="0" y="0" width="64" height="25"/>
+						<textElement textAlignment="Right">
+							<font size="16" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{aveAge}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<line>
+					<reportElement uuid="296b7387-cdda-46f8-821c-72b1211bcf03" x="5" y="43" width="547" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="14b0bbcc-8564-45f8-a832-2967bc43cd92" x="27" y="15" width="313" height="35"/>
+				<textElement>
+					<font size="20" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[ちゃぱてぃ商店従業員名簿]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c8abf023-7f55-4e3e-a2e2-1a9ee9997403" x="153" y="45" width="273" height="25"/>
+				<textElement>
+					<font size="16" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{city} + "　" + $F{street}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="b283be12-6e2c-4a6f-af8a-0415f63563b4" x="0" y="0" width="555" height="70"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="aa8e2e1a-793c-4754-a939-c68811e5af8c" mode="Transparent" x="80" y="39" width="52" height="25"/>
+				<textElement textAlignment="Center">
+					<font size="16" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[住所]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="31e0a048-7799-486a-91f1-ab6c100a5050" x="14" y="19" width="41" height="34"/>
+				<textElement>
+					<font size="20" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-HW-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="42738c4a-1c1c-43b2-9a75-d6ea33a2656d" x="153" y="9" width="273" height="25"/>
+				<textElement>
+					<font size="16" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstname} + "　" + $F{lastname}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7316c00a-8a6f-4fb5-9d5d-1700f0ef8eaf" mode="Transparent" x="80" y="9" width="52" height="25"/>
+				<textElement textAlignment="Center">
+					<font size="16" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[氏名]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c9e7692d-dec1-42e7-bddc-165e149fde68" x="153" y="39" width="273" height="25"/>
+				<textElement>
+					<font size="16" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{city} + "　" + $F{street}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="107" splitType="Stretch">
+			<frame>
+				<reportElement uuid="689c1fa5-5ad8-480b-b682-bee0be2563cb" mode="Transparent" x="412" y="10" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement uuid="a1b88c52-b74c-4682-979e-d2d3a2837f9f" x="0" y="0" width="100" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11" pdfFontName="HeiseiMin-W3" pdfEncoding="UniJIS-UCS2-H"/>
+					</textElement>
+					<text><![CDATA[店長印]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="9ec63907-ba17-4f25-85ea-bb336b9021e7" x="412" y="30" width="100" height="68"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<image scaleImage="RetainShape">
+					<reportElement uuid="e751b180-e113-4ee4-96fe-a3c77b9344c4" mode="Opaque" x="19" y="5" width="60" height="60"/>
+					<imageExpression><![CDATA[$P{Image1}]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

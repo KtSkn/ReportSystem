@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+<script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" />
+<script src="webjars/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+	<!--	<table>-->
+	<!--		<tr>-->
+	<!--			<th>id</th>-->
+	<!--			<th>name</th>-->
+	<!--			<th>old</th>-->
+	<!--			<th>old</th>-->
+	<!--			<th>old</th>-->
+	<!--			<th>old</th>-->
+	<!--		</tr>-->
+	<!--		<tr th:each="myDto : ${myDto}">-->
+	<!--			<td th:text="${myDto.wariate}"></td>-->
+	<!--		</tr>-->
+	<!--	</table>-->
+	<!--	<table>-->
+	<!--		<tr>-->
+	<!--			<th>id</th>-->
+	<!--			<th>name</th>-->
+	<!--			<th>old</th>-->
+	<!--			<th>old</th>-->
+	<!--			<th>old</th>-->
+	<!--			<th>old</th>-->
+	<!--		<tr th:each="customer : ${customer}" th:object="${customer}">-->
+	<!--			<td th:text="*{id}">100</td>-->
+	<!--			<td th:text="*{name}"></td>-->
+	<!--			<td th:text="*{old}"></td>-->
+	<!--		</tr>-->
+	<!--	</table>-->
+
+
+	<!--	<form id="myform" name="myForm" th:action="@{/execute}" method="post"-->
+	<!--		th:object="${myForm}">-->
+	<!--		<div th:object="${myDto}">-->
+	<!--			<label for="wariate">割当日:</label> <input id="wariate" type="date"-->
+	<!--				th:value="*{wariate}" th:field="*{wariate}" />-->
+	<!--			<div>-->
+	<!--				<label th:for="${#ids.next('checked')}">合計出力</label> <input-->
+	<!--					type="checkbox" th:value="*{checked}" th:field="*{checked}" />-->
+	<!--			</div>-->
+	<!--			<label>form: <input id="execute" type="text" name="text"-->
+	<!--				th:value="*{value}" th:field="*{value}">-->
+	<!--			</label><input type="submit" value="実行" />-->
+	<!--		</div>-->
+
+	<!--	</form>-->
+
+
+	<form id="myform2" name="myForm" th:action="@{/execute}" method="post" th:object="${myForm}">
+			<label for="wariate">割当日:</label> <input id="wariate" type="date" name="wariate"
+				th:value="*{wariate}" th:field="*{wariate}" />
+			<p></p>
+			<div>
+				<label th:for="${#ids.next('checked')}">合計出力</label>
+				 <input name="checked" type="checkbox" th:value="*{checked}" th:field="*{checked}" />
+			</div>
+			<label for="input-text">form: </label> 
+			<input name=text id="text" type="text"  th:value="*{text}" th:field="*{text}"> 
+			<input id="execute" type="button" value="実行" />
+
+	</form>
+
+	<button id=abutton>ajax</button>
+
+<!--	<div hidden="" class="errorarea" th:object="${myForm}">-->
+	<div class="errorarea" th:object="${myForm}">
+		<div id = "errormessage" th:text="*{message}"></div>
+
+		エラーメッセージたち
+		<ul th:each="error : ${#fields.errors('text')}">
+			<li class="valueerror" th:text="${error}"></li>
+		</ul>
+	</div>
+	<script type="text/javascript" th:src="@{/js/outer.js}"></script>
+
+</body>
+</html>

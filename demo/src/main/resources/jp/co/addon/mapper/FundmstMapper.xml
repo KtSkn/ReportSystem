@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.addon.mapper.FundmstMapper">
+    <select id="findAll" resultType="jp.co.addon.entity.Fundmst">
+        SELECT * FROM Fundmst order by id;
+    </select>
+<!--    <select id="get" resultType="com.example.dbunitdemo.domain.model.Customer">
+        SELECT id, name, age, address FROM customer WHERE id = #{id}
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO customer (name, age, address) VALUES (#{customer.name}, #{customer.age}, #{customer.address})
+    </insert>
+    <update id="update">
+        UPDATE customer SET name = #{customer.name}, age = #{customer.age}, address = #{customer.address} WHERE id = #{customer.id}
+    </update>
+    <delete id="delete">
+        DELETE FROM customer WHERE id = #{id}
+    </delete>
+-->
+</mapper>
